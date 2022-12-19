@@ -1,6 +1,4 @@
-Завдання #1:
+## The information system of the beauty salon, which takes into account registration and customer service by salon masters
 
-Інформаційна система салону краси, що враховує реєстрацію та обслугову- вання клієнтів майстрами салону
-
-додатково буде використовуватися:
+### additionally will be used:
 - docker container: MySQL & Adminer
