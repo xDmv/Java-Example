@@ -67,9 +67,6 @@ public class User {
     private Set<Services> specialist_id = new LinkedHashSet<>();
 
     @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = true)
-    private Set<Roles> roleses = new LinkedHashSet<>();
-
-    @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = true)
     private Set<Appointments> appointmentses = new LinkedHashSet<>();
 
     public Date getEdited_ed() {

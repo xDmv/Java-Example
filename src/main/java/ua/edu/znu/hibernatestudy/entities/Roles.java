@@ -6,6 +6,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -16,7 +17,7 @@ import java.util.Set;
 public class Roles {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "type", nullable = false)
@@ -27,17 +28,13 @@ public class Roles {
     private String description;
 
     @Column(name = "created_at")
-    private Date created_at;
+    private Instant created_at = Instant.now();
 
-    @Column(name = "edited_ed", nullable = false)
-    private LocalDateTime edited_ed;
+    @Column(name = "edited_ed")
+    private Instant edited_ed;
 
-    @Column(name = "author_id", nullable = false)
+    @Column(name = "author_id")
     private Long author_id;
-
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "user_id")
-    private User user;
 
     public Long getAuthor_id() {
         return author_id;
@@ -47,19 +44,19 @@ public class Roles {
         this.author_id = author_id;
     }
 
-    public LocalDateTime getEdited_ed() {
+    public Instant getEdited_ed() {
         return edited_ed;
     }
 
-    public void setEdited_ed(LocalDateTime edited_ed) {
+    public void setEdited_ed(Instant edited_ed) {
         this.edited_ed = edited_ed;
     }
 
-    public Date getCreated_at() {
+    public Instant getCreated_at() {
         return created_at;
     }
 
-    public void setCreated_at(Date created_at) {
+    public void setCreated_at(Instant created_at) {
         this.created_at = created_at;
     }
 
